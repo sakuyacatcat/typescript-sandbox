@@ -18,10 +18,10 @@ for (const line of lines) {
     continue;
   }
 
-  const [n, aString, pString] = line.split(",");
+  const [n, a, p] = line.split(",");
   const name: string = String(n);
-  const age: number = Number(aString);
-  const premiumUser: boolean = Number(pString) === 1;
+  const age: number = Number(a);
+  const premiumUser: boolean = Number(p) === 1;
   const user: User = {
     name,
     age,
@@ -39,3 +39,5 @@ for (const user of users) {
     );
   }
 }
+
+console.log(users);
