@@ -15,9 +15,9 @@ function createRangeIterable(start: number, end: number): Iterable<number> {
   };
 }
 
-const range = createRangeIterable(1, 5);
+const iterableRange = createRangeIterable(1, 5);
 
-for (const num of range) {
+for (const num of iterableRange) {
   console.log(num);
 }
 
