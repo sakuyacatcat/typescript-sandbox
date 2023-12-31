@@ -96,3 +96,63 @@ console.log(toLowerOrUpper2("Hello"));
 console.log(toLowerOrUpper2("Hello", true));
 console.log(toLowerOrUpper2("Hello", false));
 console.log(toLowerOrUpper2("Hello", undefined));
+
+// callback function
+
+type User2 = { name: string; age: number };
+
+const getName = (u: User2): string => u.name;
+const users2: User2[] = [
+  { name: "Taro", age: 10 },
+  { name: "Jiro", age: 15 },
+  { name: "Saburo", age: 20 },
+];
+
+const names = users2.map(getName);
+console.log(names);
+const names2 = users2.map((u: User2): string => u.name);
+console.log(names2);
+
+// type express function
+
+type Greetable = {
+  greet: (str: string) => string;
+};
+
+const g: Greetable = {
+  greet: (str) => `Hello, ${str}!`,
+};
+
+console.log(g.greet("World"));
+
+// call signature
+
+type MyFunc = {
+  isUsed: boolean;
+  (arg: number): void;
+};
+
+const double: MyFunc = (arg: number) => {
+  console.log(arg * 2);
+};
+
+double.isUsed = true;
+console.log(double.isUsed);
+double(10);
+
+// partial type relation between two functions
+
+type HasName2 = {
+  name: string;
+};
+type HasNameAndAge2 = {
+  name: string;
+  age: number;
+};
+
+const showName = (obj: HasName2): void => {
+  console.log(obj.name);
+};
+
+const f: (obj: HasNameAndAge2) => void = showName;
+f({ name: "Taro", age: 10 });
