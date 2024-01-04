@@ -1,11 +1,11 @@
 // basic
 
-type Animal = {
+export type Animal = {
   species: string;
-  age: string;
+  age: number;
 };
 
-type Human2 = {
+export type Human2 = {
   name: string;
   age: number;
 };
@@ -14,7 +14,7 @@ type User11 = Animal | Human2;
 
 const tama: User11 = {
   species: "cat",
-  age: "10",
+  age: 10,
 };
 
 const jiro: User11 = {
@@ -24,11 +24,12 @@ const jiro: User11 = {
 
 // function
 
-function getName2(user: User11): string {
-  if ("name" in user) {
-    return user.name;
-  }
-  return user.species;
+export function getName2(human: Human2): string {
+  return human.name;
+}
+
+export function getSpecies2(animal: Animal): string {
+  return animal.species;
 }
 
 // function to get union type common property
